@@ -1,4 +1,4 @@
-import csv
+from csv import DictReader
 from functools import lru_cache
 
 
@@ -6,7 +6,7 @@ from functools import lru_cache
 def read(path):
     with open(path, encoding="utf-8") as file:
         jobs_list = []
-        jobs_reader = csv.DictReader(file, delimiter=",", quotechar='"')
+        jobs_reader = DictReader(file, delimiter=",", quotechar='"')
         for row in jobs_reader:
             jobs_list.append(row)
         file.close()
